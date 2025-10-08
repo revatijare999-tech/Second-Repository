@@ -1,0 +1,12 @@
+key=https://www.demoblaze.com/
+Uname=Revati jare1
+PW=reva@123453455663
+Name=Revati
+country=India
+city=Pune
+card=icici
+month=Feb
+year=1995
+contactEmail=ABE@gmail.com
+ContactName=345678916
+ContactMessage=helloo

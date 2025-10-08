@@ -1,0 +1,190 @@
+package Com.Pages;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class LoginDemoBlaze {
+	 WebDriver driver;
+	 By e1 = By.id("signin2");
+	 By fn = By.id("sign-username");
+	 By pa = By.id("sign-password");
+	 By e2 = By.xpath("//button[@onclick='register()']");
+	 //cart
+	 By cr = By.id("cartur");
+	 By PO =By.xpath("//button[@class='btn btn-success']");
+	 By Na = By.xpath("//input[@id='name']");
+	 By CY = By.xpath("//input[@id='country']");
+	 By Ct = By.xpath("//input[@id='city']");
+	 By Cc = By.xpath("//input[@id='card']");
+	 By Mn = By.xpath("//input[@id='month']");
+	 By Yr = By.xpath("//input[@id='year']");
+	 By PurchaseBtn = By.xpath("//button[@onclick='purchaseOrder()']");
+	 By purchaseok =By.xpath("//button[@class='confirm btn btn-lg btn-primary']");
+	 //contact
+	 By conBtn =By.xpath("//a[@data-target='#exampleModal']");
+	 By contEmail = By.id("recipient-email");
+	 By contName = By.id("recipient-name");
+	 By contMsg = By.id("message-text");
+	 By SendMsg =By.xpath("//button[@onclick='send()']");
+	 
+	 //linking
+	 By MonitorLink =By.xpath("//a[@onclick=\"byCat('monitor')\"]");
+	 By MoniterClick=By.partialLinkText("Apple monitor");
+	 By AaaCrBtn = By.xpath("//a[@onclick=\"addToCart(10)\"]");
+	 By PhoneLink =By.xpath("//a[@onclick=\"byCat('phone')\"]");
+	 By Logo =By.cssSelector("//a[@class=\"navbar-brand\"]");
+	 
+	
+	// ------------method
+	public void LoginDBProject(String Uname,String PW,String Name,String country,String city,String card,String month,String year,String contactEmail,String ContactName,String ContactMessage) throws InterruptedException {
+		Thread.sleep(3000);
+		driver.findElement(e1).click();
+		Thread.sleep(4000);
+	    // First Name
+	    WebElement we1 = driver.findElement(fn);
+	    we1.sendKeys(Uname);
+	    System.out.println("First Name is: " + we1.getAttribute("value"));
+	    Thread.sleep(3000);
+//	    // password
+	    WebElement we2 = driver.findElement(pa);
+	    we2.sendKeys(PW);
+	    System.out.println("Password is: " + we2.getAttribute("value"));
+	    //click
+	    WebElement we3 = driver.findElement(e2);
+	    Thread.sleep(3000);
+	    driver.findElement(e2).click();
+		Thread.sleep(8000);
+
+	 // Handle alert
+		 Alert alert = driver.switchTo().alert();
+		 System.out.println("Alert Msg is: " + alert.getText());
+		 alert.accept();
+		 Thread.sleep(5000);
+		 
+	 // Wait until sign-up modal closes
+		 WebElement we4 = driver.findElement(cr);
+	     we4.click();
+	     Thread.sleep(5000);
+		 
+	     //place order btn 
+		    WebElement we5 = driver.findElement(PO);
+		    we5.click();
+		    Thread.sleep(5000);
+		    // First Name
+		    WebElement we6 = driver.findElement(Na);
+		    we6.sendKeys(Name);
+		    System.out.println(" Name is: " + we6.getAttribute("value"));
+		    Thread.sleep(5000);
+		  
+		    //  country Name
+		    WebElement we7 = driver.findElement(CY);
+		    we7.sendKeys(country);
+		    System.out.println(" Country is: " + we7.getAttribute("value"));
+		    Thread.sleep(5000);
+		   
+		//  city Name
+		    WebElement we8 = driver.findElement(Ct);
+		    we8.sendKeys(city);
+		    System.out.println(" City is: " + we8.getAttribute("value"));
+		    Thread.sleep(3000);
+		        
+		//  card Name
+		    WebElement we9 = driver.findElement(Cc);
+		    we9.sendKeys(card);
+		    System.out.println(" Card is: " + we9.getAttribute("value"));
+		    Thread.sleep(3000);
+		    
+			//  month Name
+			    WebElement we10 = driver.findElement(Mn);
+			    we10.sendKeys(month);
+			    System.out.println(" Month is: " + we10.getAttribute("value"));
+			    Thread.sleep(3000);
+			    
+			//  year Name
+			    WebElement we11 = driver.findElement(Yr);
+			    we11.sendKeys(year);
+			    System.out.println(" Year is: " + we11.getAttribute("value"));
+			    Thread.sleep(3000);
+			    
+		    
+		    
+			  //purchase  btn 
+			    WebElement we12 = driver.findElement(PurchaseBtn);
+			    we12.click();
+			    Thread.sleep(5000);
+			    
+			    WebElement we13 = driver.findElement(purchaseok);
+			    we13.click();
+			    Thread.sleep(5000);
+			    
+//			    driver.findElement(cont).click();
+//			    WebElement we14 = driver.findElement(cont);
+//			    we14.click();
+//			    Thread.sleep(5000);
+			    
+			  //contact
+			     WebElement we14 = driver.findElement(conBtn);
+				 we14.click();
+				 Thread.sleep(5000);
+				 
+				//  Contact Email
+				    WebElement we15 = driver.findElement(contEmail);
+				    we15.sendKeys(contactEmail);
+				    System.out.println(" Contact Email is: " + we15.getAttribute("value"));
+				    Thread.sleep(3000);
+				    
+				//  Contact name
+				    WebElement we16 = driver.findElement(contName);
+				    we16.sendKeys(ContactName);
+				    System.out.println(" Contact Email is: " + we16.getAttribute("value"));
+				    Thread.sleep(3000);
+				    
+				//  Contact msg
+				    WebElement we17 = driver.findElement(contMsg);
+				    we17.sendKeys(ContactMessage);
+				    System.out.println(" Contact Email is: " + we17.getAttribute("value"));
+				    Thread.sleep(3000);
+				    //click send btn
+				    WebElement we18 = driver.findElement(SendMsg);
+				    we18.click();
+				    Thread.sleep(4000);
+				 // Handle alert
+					 Alert at = driver.switchTo().alert();
+					 System.out.println("Alert Msg is: " + alert.getText());
+					 alert.accept();
+					 Thread.sleep(2000);
+//					 
+					 //click link 
+					 WebElement we19 = driver.findElement(MonitorLink);
+					    we19.click();
+					    Thread.sleep(5000);
+					    
+					    WebElement we20 = driver.findElement(MoniterClick);
+					    we20.click();
+					    Thread.sleep(5000);
+					   
+					    WebElement we21 = driver.findElement(AaaCrBtn);
+					    we21.click();
+					    Thread.sleep(5000);
+					    // Handle alert
+						 Alert ae = driver.switchTo().alert();
+						 System.out.println("Alert Msg is: " + alert.getText());
+						 alert.accept();
+						 Thread.sleep(5000);
+//						 
+//						 WebElement we22 = driver.findElement(PhoneLink);
+//						    we22.click();
+//						    Thread.sleep(5000);
+						    
+						    WebElement we23 = driver.findElement(Logo);
+						    we23.click();
+						    Thread.sleep(3000);
+						 
+		    }
+	
+	   
+	    public LoginDemoBlaze(WebDriver driver) { // constructor
+        this.driver = driver;
+	    }
+	}

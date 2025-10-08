@@ -1,0 +1,35 @@
+package Com.Test;
+import java.io.FileReader;
+import java.util.Properties;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import  Com.Pages.LoginDemoBlaze;
+
+		public class RunDemoBlaze {
+			private static WebDriver driver = null;
+		    public static void main(String[] args) throws Exception {
+		        run();
+		    }
+
+		    public static void run() throws Exception {
+		    	driver = new ChromeDriver();
+		    	driver.manage().window().maximize();				
+				  FileReader fr = new FileReader("C:\\Maven\\MavenLearning\\src\\test\\java\\Com\\Test\\DemoBlaze1.properties"); 
+				  Properties pp = new Properties(); 
+				  pp.load(fr);
+				  driver.get(pp.getProperty("key")); 
+				  LoginDemoBlaze L = new LoginDemoBlaze(driver);
+				  L.LoginDBProject(pp.getProperty("Uname"),pp.getProperty("PW"),
+							pp.getProperty("Name"),
+							pp.getProperty("country"),
+							pp.getProperty("city"),
+							pp.getProperty("card"),
+							pp.getProperty("month"),
+							pp.getProperty("year"),
+							pp.getProperty("contactEmail"),
+							pp.getProperty("ContactName"),
+							pp.getProperty("ContactMessage")
+							);
+				  
+		    }
+		}
